@@ -102,20 +102,26 @@ export default function UpcomingRelease() {
 
           <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:items-center">
             <a
+              href={upcomingRelease.href}
+              className="inline-flex min-h-12 items-center justify-center gap-3 border border-flare/40 bg-ember/20 px-6 py-3.5 font-sans text-xs font-medium uppercase tracking-[0.2em] text-bone transition hover:border-flare hover:bg-ember/40 sm:text-sm"
+            >
+              Smart link XyZ
+              <span aria-hidden>→</span>
+            </a>
+            <a
               href={upcomingRelease.notifyHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-12 items-center justify-center gap-3 border border-flare/40 bg-ember/20 px-6 py-3.5 font-sans text-xs font-medium uppercase tracking-[0.2em] text-bone transition hover:border-flare hover:bg-ember/40 sm:text-sm"
+              className="inline-flex min-h-12 items-center justify-center gap-3 border border-white/15 px-6 py-3.5 font-sans text-xs font-medium uppercase tracking-[0.2em] text-mist transition hover:border-white/30 hover:text-bone sm:text-sm"
             >
-              Avisame del estreno
-              <span aria-hidden>→</span>
+              Avisame en Instagram
             </a>
             <a
               href={upcomingRelease.calendarHref}
               download="reload-souls-xyz.ics"
               className="inline-flex min-h-12 items-center justify-center gap-3 border border-white/15 px-6 py-3.5 font-sans text-xs font-medium uppercase tracking-[0.2em] text-mist transition hover:border-white/30 hover:text-bone sm:text-sm"
             >
-              Agregar al calendario
+              Calendario
             </a>
             <p className="text-center font-sans text-xs uppercase tracking-[0.22em] text-ash sm:ml-2 sm:text-left">
               {upcomingRelease.dateShort}

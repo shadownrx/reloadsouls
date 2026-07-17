@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Outfit, Syne } from "next/font/google";
 import "./globals.css";
 
@@ -80,6 +81,7 @@ export default function RootLayout({
     >
       <body className="film-grain min-h-full flex flex-col bg-void text-bone">
         {children}
+        <Analytics />
       </body>
     </html>
   );

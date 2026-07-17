@@ -41,7 +41,7 @@ export const upcomingRelease: UpcomingRelease = {
   description:
     "XyZ es un descenso al caos. Una fusión de atmósferas góticas, coros oscuros y energía industrial donde lo sagrado colisiona con la máquina. Kicks devastadores, bajos ácidos y una intensidad sin límites definen el sonido más oscuro de Reload Souls.",
   cover: "/covers/xyz.png",
-  href: "https://www.instagram.com/reload_souls/",
+  href: "/xyz",
   notifyHref: "https://www.instagram.com/reload_souls/",
   calendarHref: "/xyz.ics",
 };
