@@ -27,13 +27,14 @@ const siteUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Reload Souls — XyZ · 20.07.2026",
+    default: "Reload Souls — Aurelia",
     template: "%s · Reload Souls",
   },
   description:
-    "XyZ — Reload Souls x Blas. Estreno 20 de julio de 2026. No es música. Es presión sonora. Techno industrial desde SoundCloud.",
+    "Aurelia — nuevo single de Reload Souls. Ya disponible. XyZ x Blas coming soon. No es música. Es presión sonora.",
   keywords: [
     "Reload Souls",
+    "Aurelia",
     "XyZ",
     "Blas",
     "techno",
@@ -45,27 +46,27 @@ export const metadata: Metadata = {
     apple: "/logo.png",
   },
   openGraph: {
-    title: "Reload Souls x Blas — XyZ",
+    title: "Reload Souls — Aurelia",
     description:
-      "Descenso al caos. Estreno 20 de julio de 2026. No es música. Es presión sonora.",
+      "Nuevo single ya disponible. No es música. Es presión sonora.",
     type: "website",
     locale: "es_AR",
     siteName: "Reload Souls",
     images: [
       {
-        url: "/covers/xyz.png",
+        url: "/covers/aurelia.png",
         width: 1200,
         height: 1200,
-        alt: "Reload Souls x Blas — XyZ",
+        alt: "Reload Souls — Aurelia",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Reload Souls x Blas — XyZ",
+    title: "Reload Souls — Aurelia",
     description:
-      "Descenso al caos. Estreno 20 de julio de 2026. No es música. Es presión sonora.",
-    images: ["/covers/xyz.png"],
+      "Nuevo single ya disponible. No es música. Es presión sonora.",
+    images: ["/covers/aurelia.png"],
   },
 };
 

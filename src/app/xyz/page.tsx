@@ -4,16 +4,16 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "XyZ — Reload Souls x Blas",
+  title: "XyZ — Reload Souls x Blas · Coming soon",
   description: upcomingRelease.description,
   openGraph: {
-    title: "Reload Souls x Blas — XyZ",
+    title: "Reload Souls x Blas — XyZ (Coming soon)",
     description: upcomingRelease.description,
     images: [upcomingRelease.cover],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Reload Souls x Blas — XyZ",
+    title: "Reload Souls x Blas — XyZ (Coming soon)",
     description: upcomingRelease.description,
     images: [upcomingRelease.cover],
   },
@@ -50,7 +50,9 @@ export default function XyzPage() {
 
         <div className="mt-8 text-center">
           <p className="font-sans text-xs uppercase tracking-[0.3em] text-ember">
-            Estreno {upcomingRelease.dateShort}
+            {upcomingRelease.status === "delayed"
+              ? "Retrasado · Coming soon"
+              : `Estreno ${upcomingRelease.dateShort}`}
           </p>
           <h1 className="mt-3 font-display text-5xl font-semibold tracking-tight text-bone">
             {upcomingRelease.title}
@@ -72,18 +74,17 @@ export default function XyzPage() {
           >
             Avisame en Instagram
           </a>
-          <a
-            href={upcomingRelease.calendarHref}
-            download="reload-souls-xyz.ics"
+          <Link
+            href="/#escuchar"
             className="inline-flex min-h-12 items-center justify-center border border-white/15 px-5 py-3.5 text-center font-sans text-xs font-medium uppercase tracking-[0.2em] text-mist transition hover:border-white/30 hover:text-bone"
           >
-            Agregar al calendario
-          </a>
+            Escuchar Aurelia ahora
+          </Link>
         </div>
 
         <div className="mt-10">
           <p className="mb-4 text-center font-sans text-[0.65rem] uppercase tracking-[0.28em] text-ash">
-            Escuchar / seguir
+            Seguir mientras tanto
           </p>
           <ul className="flex flex-col gap-2">
             {listenLinks.map((platform) => (

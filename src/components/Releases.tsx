@@ -23,7 +23,7 @@ export default function Releases() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-8 sm:gap-y-12 md:grid-cols-3 xl:grid-cols-6">
+        <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-8 sm:gap-y-12 md:grid-cols-3 xl:grid-cols-4">
           {releases.map((release, index) => (
             <motion.article
               key={release.id}

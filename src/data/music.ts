@@ -24,26 +24,47 @@ export type UpcomingRelease = {
   artists: string;
   dateLabel: string;
   dateShort: string;
-  releaseAt: string;
+  releaseAt: string | null;
+  status: "scheduled" | "delayed";
   description: string;
   cover: string;
   href: string;
   notifyHref: string;
-  calendarHref: string;
+  calendarHref?: string;
 };
 
 export const upcomingRelease: UpcomingRelease = {
   title: "XyZ",
   artists: "Reload Souls x Blas",
-  dateLabel: "20 de julio de 2026",
-  dateShort: "20.07.2026",
-  releaseAt: "2026-07-20T00:00:00-03:00",
+  dateLabel: "Próximamente",
+  dateShort: "Soon",
+  releaseAt: null,
+  status: "delayed",
   description:
-    "XyZ es un descenso al caos. Una fusión de atmósferas góticas, coros oscuros y energía industrial donde lo sagrado colisiona con la máquina. Kicks devastadores, bajos ácidos y una intensidad sin límites definen el sonido más oscuro de Reload Souls.",
+    "XyZ es un descenso al caos. Una fusión de atmósferas góticas, coros oscuros y energía industrial donde lo sagrado colisiona con la máquina. Kicks devastadores, bajos ácidos y una intensidad sin límites definen el sonido más oscuro de Reload Souls. El estreno se retrasó — avisamos cuando caiga.",
   cover: "/covers/xyz.png",
   href: "/xyz",
   notifyHref: "https://www.instagram.com/reload_souls/",
-  calendarHref: "/xyz.ics",
+};
+
+export type LatestRelease = {
+  title: string;
+  artists: string;
+  dateLabel: string;
+  dateShort: string;
+  cover: string;
+  href: string;
+  listenHref: string;
+};
+
+export const latestRelease: LatestRelease = {
+  title: "Aurelia",
+  artists: "Reload Souls",
+  dateLabel: "20 de julio de 2026",
+  dateShort: "20.07.2026",
+  cover: "/covers/aurelia.png",
+  href: "https://soundcloud.com/reload_souls/aurelia",
+  listenHref: "#escuchar",
 };
 
 export type Platform = {
@@ -56,6 +77,16 @@ export type Platform = {
 const art = (url: string) => url.replace("-large.", "-t500x500.");
 
 export const tracks: Track[] = [
+  {
+    id: "aurelia",
+    soundcloudId: "2364918044",
+    title: "Aurelia",
+    artist: "Reload Souls",
+    duration: "4:06",
+    src: "/api/soundcloud/stream/2364918044",
+    cover: "/covers/aurelia.png",
+    href: "https://soundcloud.com/reload_souls/aurelia",
+  },
   {
     id: "x",
     soundcloudId: "2361433835",
@@ -130,8 +161,8 @@ export const tracks: Track[] = [
 
 export const releases: Release[] = [
   {
-    id: "r0",
-    title: "X",
+    id: "r-aurelia",
+    title: "Aurelia",
     type: "Single",
     year: "2026",
     cover: tracks[0].cover,
@@ -139,44 +170,52 @@ export const releases: Release[] = [
     highlight: "Último lanzamiento",
   },
   {
-    id: "r1",
-    title: "Midnight Keeps Calling",
+    id: "r0",
+    title: "X",
     type: "Single",
     year: "2026",
     cover: tracks[1].cover,
     href: tracks[1].href,
   },
   {
+    id: "r1",
+    title: "Midnight Keeps Calling",
+    type: "Single",
+    year: "2026",
+    cover: tracks[2].cover,
+    href: tracks[2].href,
+  },
+  {
     id: "r2",
     title: "ID (Reload Mashup)",
     type: "Mashup",
     year: "2026",
-    cover: tracks[2].cover,
-    href: tracks[2].href,
+    cover: tracks[3].cover,
+    href: tracks[3].href,
   },
   {
     id: "r3",
     title: "2AM",
     type: "Single",
     year: "2026",
-    cover: tracks[3].cover,
-    href: tracks[3].href,
+    cover: tracks[4].cover,
+    href: tracks[4].href,
   },
   {
     id: "r4",
     title: "3AM",
     type: "Single",
     year: "2026",
-    cover: tracks[4].cover,
-    href: tracks[4].href,
+    cover: tracks[5].cover,
+    href: tracks[5].href,
   },
   {
     id: "r5",
     title: "ID",
     type: "Single",
     year: "2026",
-    cover: tracks[5].cover,
-    href: tracks[5].href,
+    cover: tracks[6].cover,
+    href: tracks[6].href,
   },
 ];
 

@@ -13,12 +13,12 @@ const chapters = [
     text: "Los primeros drops — ID, 2AM, 3AM, Midnight Keeps Calling y X — definen el terreno: noche industrial, kicks pesados y cero adorno.",
   },
   {
-    label: "XyZ",
-    text: "Con Blas llega el capítulo más oscuro: atmósferas góticas, coros y máquina. Un descenso al caos que se estrena el 20 de julio de 2026.",
+    label: "Aurelia",
+    text: "El 20 de julio de 2026 llega Aurelia: oro, grieta y presión. El single más reciente de Reload Souls, ya disponible.",
   },
   {
-    label: "Ahora",
-    text: "No es música. Es presión sonora. Del underground digital a Spotify y el resto del mundo — el reload no se apaga.",
+    label: "XyZ",
+    text: "Con Blas viene el capítulo más oscuro: atmósferas góticas, coros y máquina. Retrasado — se anuncia cuando caiga.",
   },
 ];
 

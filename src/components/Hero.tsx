@@ -1,6 +1,6 @@
 "use client";
 
-import { upcomingRelease } from "@/data/music";
+import { latestRelease, upcomingRelease } from "@/data/music";
 import { motion, useScroll, useTransform } from "framer-motion";
 import dynamic from "next/dynamic";
 import Image from "next/image";
@@ -74,8 +74,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
           className="mt-4 font-sans text-[0.7rem] uppercase tracking-[0.28em] text-flare sm:text-xs"
         >
-          {upcomingRelease.title} · {upcomingRelease.dateShort} ·{" "}
-          {upcomingRelease.artists}
+          {latestRelease.title} · Ya disponible · {latestRelease.dateShort}
         </motion.p>
 
         <motion.div
@@ -85,14 +84,14 @@ export default function Hero() {
           className="mt-8 flex flex-col items-center gap-3 sm:mt-10 sm:flex-row"
         >
           <a
-            href="#proximo"
+            href={latestRelease.listenHref}
             className="group inline-flex min-h-12 items-center gap-3 border border-flare/40 bg-ember/20 px-6 py-3.5 font-sans text-xs font-medium uppercase tracking-[0.2em] text-bone transition duration-500 hover:border-flare hover:bg-ember/40 sm:px-7 sm:text-sm"
           >
             <span className="relative flex h-2.5 w-2.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-flare opacity-60" />
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-flare" />
             </span>
-            XyZ · 20.07
+            Escuchar Aurelia
             <span
               aria-hidden
               className="translate-x-0 transition duration-300 group-hover:translate-x-1"
@@ -101,10 +100,10 @@ export default function Hero() {
             </span>
           </a>
           <a
-            href="#escuchar"
+            href="#proximo"
             className="inline-flex min-h-12 items-center gap-2 border border-white/15 px-6 py-3.5 font-sans text-xs font-medium uppercase tracking-[0.2em] text-mist transition hover:border-white/30 hover:text-bone sm:text-sm"
           >
-            Escuchar
+            {upcomingRelease.title} · Soon
           </a>
         </motion.div>
       </div>

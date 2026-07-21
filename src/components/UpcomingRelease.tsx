@@ -19,8 +19,14 @@ export default function UpcomingRelease() {
   });
   const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "6%"]);
   const [daysLeft, setDaysLeft] = useState<number | null>(null);
+  const isDelayed = upcomingRelease.status === "delayed";
+  const hasDate = Boolean(upcomingRelease.releaseAt);
 
   useEffect(() => {
+    if (!upcomingRelease.releaseAt) {
+      setDaysLeft(null);
+      return;
+    }
     setDaysLeft(getDaysLeft(new Date(upcomingRelease.releaseAt)));
   }, []);
 
@@ -56,7 +62,7 @@ export default function UpcomingRelease() {
             </motion.div>
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-void/80 via-transparent to-transparent" />
             <p className="absolute bottom-4 left-4 z-10 font-sans text-[0.65rem] uppercase tracking-[0.28em] text-flare sm:bottom-5 sm:left-5">
-              Próximo estreno
+              {isDelayed ? "Retrasado" : "Próximo estreno"}
             </p>
           </div>
         </motion.div>
@@ -80,24 +86,28 @@ export default function UpcomingRelease() {
             {upcomingRelease.description}
           </p>
           <p className="mt-5 max-w-md text-base leading-relaxed text-ash sm:mt-6 sm:text-lg">
-            Se estrena el{" "}
-            <span className="text-bone">{upcomingRelease.dateLabel}</span>.
-            {daysLeft !== null && daysLeft > 0 ? (
+            {isDelayed ? (
               <>
-                {" "}
-                Faltan{" "}
-                <span className="text-flare">
-                  {daysLeft === 1 ? "1 día" : `${daysLeft} días`}
-                </span>
-                .
+                Fecha nueva:{" "}
+                <span className="text-bone">{upcomingRelease.dateLabel}</span>.
+                Te avisamos cuando caiga.
               </>
-            ) : null}
-            {daysLeft === 0 ? (
+            ) : (
               <>
-                {" "}
-                <span className="text-flare">Ya disponible</span>.
+                Se estrena el{" "}
+                <span className="text-bone">{upcomingRelease.dateLabel}</span>.
+                {hasDate && daysLeft !== null && daysLeft > 0 ? (
+                  <>
+                    {" "}
+                    Faltan{" "}
+                    <span className="text-flare">
+                      {daysLeft === 1 ? "1 día" : `${daysLeft} días`}
+                    </span>
+                    .
+                  </>
+                ) : null}
               </>
-            ) : null}
+            )}
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:items-center">
@@ -115,13 +125,6 @@ export default function UpcomingRelease() {
               className="inline-flex min-h-12 items-center justify-center gap-3 border border-white/15 px-6 py-3.5 font-sans text-xs font-medium uppercase tracking-[0.2em] text-mist transition hover:border-white/30 hover:text-bone sm:text-sm"
             >
               Avisame en Instagram
-            </a>
-            <a
-              href={upcomingRelease.calendarHref}
-              download="reload-souls-xyz.ics"
-              className="inline-flex min-h-12 items-center justify-center gap-3 border border-white/15 px-6 py-3.5 font-sans text-xs font-medium uppercase tracking-[0.2em] text-mist transition hover:border-white/30 hover:text-bone sm:text-sm"
-            >
-              Calendario
             </a>
             <p className="text-center font-sans text-xs uppercase tracking-[0.22em] text-ash sm:ml-2 sm:text-left">
               {upcomingRelease.dateShort}
