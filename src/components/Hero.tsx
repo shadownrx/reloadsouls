@@ -1,16 +1,17 @@
 "use client";
 
 import { latestRelease, upcomingRelease } from "@/data/music";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import { useRef } from "react";
-import Logo from "./Logo";
+import { useRef, type MouseEvent } from "react";
+import BrandWordmark from "./BrandWordmark";
 
 const Atmosphere = dynamic(() => import("./Atmosphere"), { ssr: false });
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
+  const reduceMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -18,9 +19,24 @@ export default function Hero() {
   const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
   const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
 
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const springX = useSpring(mouseX, { stiffness: 60, damping: 20 });
+  const springY = useSpring(mouseY, { stiffness: 60, damping: 20 });
+  const wordmarkX = useTransform(springX, [-0.5, 0.5], [-18, 18]);
+  const wordmarkY = useTransform(springY, [-0.5, 0.5], [-10, 10]);
+
+  const onMove = (event: MouseEvent<HTMLElement>) => {
+    if (reduceMotion) return;
+    const rect = event.currentTarget.getBoundingClientRect();
+    mouseX.set((event.clientX - rect.left) / rect.width - 0.5);
+    mouseY.set((event.clientY - rect.top) / rect.height - 0.5);
+  };
+
   return (
     <section
       ref={ref}
+      onMouseMove={onMove}
       className="relative flex min-h-[100svh] flex-col items-center justify-end overflow-hidden px-5 pb-20 pt-24 sm:px-6 sm:pb-16 sm:pt-28 md:justify-center md:pb-24"
     >
       <motion.div
@@ -50,19 +66,19 @@ export default function Hero() {
 
       <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center px-1 text-center">
         <motion.div
-          initial={{ opacity: 0, scale: 0.96, filter: "blur(8px)" }}
-          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-          transition={{ duration: 1.25, ease: [0.22, 1, 0.36, 1] }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          style={reduceMotion ? undefined : { x: wordmarkX, y: wordmarkY }}
           className="w-full"
         >
-          <Logo variant="hero" priority />
-          <h1 className="sr-only">Reload Souls</h1>
+          <BrandWordmark />
         </motion.div>
 
         <motion.p
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.9, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
           className="mt-5 max-w-[18rem] text-balance font-sans text-base text-mist sm:mt-8 sm:max-w-md sm:text-lg md:text-xl"
         >
           No es música. Es presión sonora.
@@ -71,7 +87,7 @@ export default function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="mt-4 font-sans text-[0.7rem] uppercase tracking-[0.28em] text-flare sm:text-xs"
         >
           {latestRelease.title} · Ya disponible · {latestRelease.dateShort}
@@ -80,7 +96,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.65, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.8, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
           className="mt-8 flex flex-col items-center gap-3 sm:mt-10 sm:flex-row"
         >
           <a
@@ -110,8 +126,16 @@ export default function Hero() {
 
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 1 }}
+        animate={
+          reduceMotion
+            ? { opacity: 1 }
+            : { opacity: 1, y: [0, 6, 0] }
+        }
+        transition={
+          reduceMotion
+            ? { delay: 1.2, duration: 1 }
+            : { delay: 1.2, duration: 1.8, repeat: Infinity, ease: "easeInOut" }
+        }
         className="pointer-events-none absolute bottom-5 left-1/2 z-10 -translate-x-1/2 font-sans text-[0.65rem] uppercase tracking-[0.35em] text-ash sm:bottom-6"
       >
         Scroll

@@ -3,6 +3,7 @@ import Platforms from "@/components/Platforms";
 import Releases from "@/components/Releases";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
+import SoundMarquee from "@/components/SoundMarquee";
 import Sponsor from "@/components/Sponsor";
 import Story from "@/components/Story";
 import TrackPlayer from "@/components/TrackPlayer";
@@ -22,6 +23,7 @@ export default async function Home() {
       <SiteHeader />
       <main id="top" className="flex-1">
         <Hero />
+        <SoundMarquee />
         <UpcomingRelease />
         <TrackPlayer stats={stats} />
         <Releases />

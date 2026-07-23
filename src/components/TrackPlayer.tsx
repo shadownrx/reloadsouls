@@ -153,6 +153,20 @@ export default function TrackPlayer({ stats = {} }: TrackPlayerProps) {
                 soundcloud.com/reload_souls
               </a>
               .
+              {Object.keys(stats).length > 0 ? (
+                <>
+                  {" "}
+                  <span className="text-ash">
+                    {formatPlayCount(
+                      Object.values(stats).reduce(
+                        (sum, item) => sum + item.playbackCount,
+                        0,
+                      ),
+                    )}{" "}
+                    reproducciones en total.
+                  </span>
+                </>
+              ) : null}
             </p>
           </motion.div>
 
