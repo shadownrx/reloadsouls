@@ -1,4 +1,6 @@
+import CursorGlow from "@/components/CursorGlow";
 import Hero from "@/components/Hero";
+import IntroCinematic from "@/components/IntroCinematic";
 import Platforms from "@/components/Platforms";
 import Releases from "@/components/Releases";
 import SiteFooter from "@/components/SiteFooter";
@@ -20,6 +22,8 @@ export default async function Home() {
 
   return (
     <>
+      <IntroCinematic />
+      <CursorGlow />
       <SiteHeader />
       <main id="top" className="flex-1">
         <Hero />

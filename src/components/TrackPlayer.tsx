@@ -1,6 +1,7 @@
 "use client";
 
 import { tracks, type Track } from "@/data/music";
+import ShareButton from "@/components/ShareButton";
 import { formatPlayCount } from "@/lib/format";
 import type { TrackStats } from "@/lib/soundcloud";
 import { AnimatePresence, motion } from "framer-motion";
@@ -28,6 +29,19 @@ export default function TrackPlayer({ stats = {} }: TrackPlayerProps) {
   const [showSticky, setShowSticky] = useState(false);
 
   const currentPlays = stats[current.soundcloudId]?.playbackCount;
+  const currentLikes = stats[current.soundcloudId]?.likesCount;
+
+  useEffect(() => {
+    const base = "Reload Souls — Aurelia";
+    if (playing) {
+      document.title = `♪ ${current.title} — Reload Souls`;
+    } else {
+      document.title = base;
+    }
+    return () => {
+      document.title = base;
+    };
+  }, [playing, current.title]);
 
   useEffect(() => {
     const audio = new Audio(current.src);
@@ -223,11 +237,21 @@ export default function TrackPlayer({ stats = {} }: TrackPlayerProps) {
                       {current.artist}
                     </p>
                     {typeof currentPlays === "number" ? (
-                      <p className="mt-2 font-sans text-xs uppercase tracking-[0.18em] text-ash">
-                        <span className="text-flare">
-                          {formatPlayCount(currentPlays)}
-                        </span>{" "}
-                        reproducciones
+                      <p className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 font-sans text-xs uppercase tracking-[0.18em] text-ash">
+                        <span>
+                          <span className="text-flare">
+                            {formatPlayCount(currentPlays)}
+                          </span>{" "}
+                          plays
+                        </span>
+                        {typeof currentLikes === "number" ? (
+                          <span>
+                            <span className="text-flare">
+                              {formatPlayCount(currentLikes)}
+                            </span>{" "}
+                            likes
+                          </span>
+                        ) : null}
                       </p>
                     ) : null}
                   </div>
@@ -296,10 +320,21 @@ export default function TrackPlayer({ stats = {} }: TrackPlayerProps) {
                     href={current.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full font-sans text-[0.65rem] uppercase tracking-[0.2em] text-ash transition hover:text-flare sm:ml-auto sm:w-auto sm:text-xs"
+                    className="font-sans text-[0.65rem] uppercase tracking-[0.2em] text-ash transition hover:text-flare sm:text-xs"
                   >
-                    Abrir en SoundCloud →
+                    SoundCloud →
                   </a>
+                  <ShareButton
+                    title={`${current.title} — Reload Souls`}
+                    text={`Escuchá ${current.title} de Reload Souls`}
+                    url={
+                      current.id === "aurelia"
+                        ? "/aurelia"
+                        : current.href
+                    }
+                    label="Compartir"
+                    className="ml-auto font-sans text-[0.65rem] uppercase tracking-[0.2em] text-ash transition hover:text-flare sm:text-xs"
+                  />
                 </div>
               </div>
             </motion.div>
@@ -308,6 +343,7 @@ export default function TrackPlayer({ stats = {} }: TrackPlayerProps) {
               {tracks.map((track, index) => {
                 const active = track.id === current.id;
                 const plays = stats[track.soundcloudId]?.playbackCount;
+                const likes = stats[track.soundcloudId]?.likesCount;
                 return (
                   <motion.li
                     key={track.id}
@@ -346,6 +382,14 @@ export default function TrackPlayer({ stats = {} }: TrackPlayerProps) {
                               {" · "}
                               <span className={active ? "text-flare/80" : ""}>
                                 {formatPlayCount(plays)} plays
+                              </span>
+                            </>
+                          ) : null}
+                          {typeof likes === "number" && likes > 0 ? (
+                            <>
+                              {" · "}
+                              <span className={active ? "text-flare/80" : ""}>
+                                {formatPlayCount(likes)} likes
                               </span>
                             </>
                           ) : null}

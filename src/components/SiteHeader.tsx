@@ -10,6 +10,7 @@ const links = [
   { href: "#releases", label: "Releases" },
   { href: "#historia", label: "Historia" },
   { href: "#plataformas", label: "Plataformas" },
+  { href: "/press", label: "Press" },
 ];
 
 export default function SiteHeader() {

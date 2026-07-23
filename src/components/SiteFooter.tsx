@@ -37,6 +37,10 @@ export default function SiteFooter() {
             Instagram
           </a>
           <span aria-hidden>·</span>
+          <a href="/press" className="transition hover:text-flare">
+            Press
+          </a>
+          <span aria-hidden>·</span>
           <a
             href="https://anex-os.vercel.app/nex-music.html"
             target="_blank"

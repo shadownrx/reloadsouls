@@ -64,7 +64,7 @@ export const latestRelease: LatestRelease = {
   dateShort: "20.07.2026",
   cover: "/covers/aurelia.png",
   href: "https://soundcloud.com/reload_souls/aurelia",
-  listenHref: "#escuchar",
+  listenHref: "/aurelia",
 };
 
 export type Platform = {

@@ -116,6 +116,12 @@ export default function Hero() {
             </span>
           </a>
           <a
+            href="#escuchar"
+            className="inline-flex min-h-12 items-center gap-2 border border-white/15 px-6 py-3.5 font-sans text-xs font-medium uppercase tracking-[0.2em] text-mist transition hover:border-white/30 hover:text-bone sm:text-sm"
+          >
+            Player
+          </a>
+          <a
             href="#proximo"
             className="inline-flex min-h-12 items-center gap-2 border border-white/15 px-6 py-3.5 font-sans text-xs font-medium uppercase tracking-[0.2em] text-mist transition hover:border-white/30 hover:text-bone sm:text-sm"
           >

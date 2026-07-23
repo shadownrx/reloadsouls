@@ -1,6 +1,7 @@
 "use client";
 
 import { upcomingRelease } from "@/data/music";
+import ShareButton from "@/components/ShareButton";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
@@ -126,6 +127,13 @@ export default function UpcomingRelease() {
             >
               Avisame en Instagram
             </a>
+            <ShareButton
+              title="Reload Souls x Blas — XyZ"
+              text={upcomingRelease.description}
+              url="/xyz"
+              label="Compartir"
+              className="inline-flex min-h-12 items-center justify-center gap-3 border border-white/15 px-6 py-3.5 font-sans text-xs font-medium uppercase tracking-[0.2em] text-mist transition hover:border-flare/40 hover:text-bone sm:text-sm"
+            />
             <p className="text-center font-sans text-xs uppercase tracking-[0.22em] text-ash sm:ml-2 sm:text-left">
               {upcomingRelease.dateShort}
             </p>
