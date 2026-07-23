@@ -1,6 +1,8 @@
 "use client";
 
 import { tracks, type Track } from "@/data/music";
+import { formatPlayCount } from "@/lib/format";
+import type { TrackStats } from "@/lib/soundcloud";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
@@ -12,7 +14,11 @@ function formatTime(seconds: number) {
   return `${m}:${s.toString().padStart(2, "0")}`;
 }
 
-export default function TrackPlayer() {
+type TrackPlayerProps = {
+  stats?: Record<string, TrackStats>;
+};
+
+export default function TrackPlayer({ stats = {} }: TrackPlayerProps) {
   const sectionRef = useRef<HTMLElement | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [current, setCurrent] = useState<Track>(tracks[0]);
@@ -20,6 +26,8 @@ export default function TrackPlayer() {
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
   const [showSticky, setShowSticky] = useState(false);
+
+  const currentPlays = stats[current.soundcloudId]?.playbackCount;
 
   useEffect(() => {
     const audio = new Audio(current.src);
@@ -200,6 +208,14 @@ export default function TrackPlayer() {
                     <p className="mt-1 text-sm text-mist sm:text-base">
                       {current.artist}
                     </p>
+                    {typeof currentPlays === "number" ? (
+                      <p className="mt-2 font-sans text-xs uppercase tracking-[0.18em] text-ash">
+                        <span className="text-flare">
+                          {formatPlayCount(currentPlays)}
+                        </span>{" "}
+                        reproducciones
+                      </p>
+                    ) : null}
                   </div>
                 </div>
 
@@ -277,6 +293,7 @@ export default function TrackPlayer() {
             <ul className="flex flex-col divide-y divide-white/5 border-y border-white/5">
               {tracks.map((track, index) => {
                 const active = track.id === current.id;
+                const plays = stats[track.soundcloudId]?.playbackCount;
                 return (
                   <motion.li
                     key={track.id}
@@ -310,6 +327,14 @@ export default function TrackPlayer() {
                         </span>
                         <span className="block truncate text-sm text-ash">
                           {track.artist}
+                          {typeof plays === "number" ? (
+                            <>
+                              {" · "}
+                              <span className={active ? "text-flare/80" : ""}>
+                                {formatPlayCount(plays)} plays
+                              </span>
+                            </>
+                          ) : null}
                         </span>
                       </span>
                       <span className="shrink-0 font-sans text-xs text-ash">

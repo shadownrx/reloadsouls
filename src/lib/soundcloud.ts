@@ -85,4 +85,42 @@ export async function resolveTrackStreamUrl(trackId: string): Promise<string> {
   return stream.url;
 }
 
+export type TrackStats = {
+  soundcloudId: string;
+  playbackCount: number;
+  likesCount: number;
+};
+
+export async function getUserTrackStats(): Promise<Record<string, TrackStats>> {
+  const clientId = await getSoundCloudClientId();
+  const res = await fetch(
+    `https://api-v2.soundcloud.com/users/${USER_ID}/tracks?client_id=${clientId}&limit=50`,
+    { next: { revalidate: 300 } },
+  );
+
+  if (!res.ok) {
+    throw new Error("No se pudieron leer las stats de SoundCloud");
+  }
+
+  const json = (await res.json()) as {
+    collection?: Array<{
+      id: number;
+      playback_count?: number;
+      likes_count?: number;
+    }>;
+  };
+
+  const stats: Record<string, TrackStats> = {};
+  for (const track of json.collection ?? []) {
+    const soundcloudId = String(track.id);
+    stats[soundcloudId] = {
+      soundcloudId,
+      playbackCount: track.playback_count ?? 0,
+      likesCount: track.likes_count ?? 0,
+    };
+  }
+
+  return stats;
+}
+
 export { USER_ID, PROFILE_URL };
