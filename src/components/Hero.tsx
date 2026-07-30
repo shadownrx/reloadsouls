@@ -107,7 +107,7 @@ export default function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-flare opacity-60" />
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-flare" />
             </span>
-            Escuchar Aurelia
+            Escuchar {latestRelease.title}
             <span
               aria-hidden
               className="translate-x-0 transition duration-300 group-hover:translate-x-1"

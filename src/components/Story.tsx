@@ -14,7 +14,11 @@ const chapters = [
   },
   {
     label: "Aurelia",
-    text: "El 20 de julio de 2026 llega Aurelia: oro, grieta y presión. El single más reciente de Reload Souls, ya disponible.",
+    text: "El 20 de julio de 2026 llega Aurelia: oro, grieta y presión. Un single que marca el terreno.",
+  },
+  {
+    label: "TMZA",
+    text: "El 26 de julio de 2026 cae TMZA: el lanzamiento más reciente de Reload Souls, ya disponible en SoundCloud.",
   },
   {
     label: "Ignition",

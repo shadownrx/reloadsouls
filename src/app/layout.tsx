@@ -27,13 +27,14 @@ const siteUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Reload Souls — Aurelia",
+    default: "Reload Souls — TMZA",
     template: "%s · Reload Souls",
   },
   description:
-    "Aurelia — nuevo single de Reload Souls. Ya disponible. Ignition — Reload Souls x Milagro: Progressive House & Melodic Techno, coming soon.",
+    "TMZA — nuevo single de Reload Souls. Ya disponible. Ignition — Reload Souls x Milagro coming soon.",
   keywords: [
     "Reload Souls",
+    "TMZA",
     "Aurelia",
     "Ignition",
     "Milagro",
@@ -50,7 +51,7 @@ export const metadata: Metadata = {
     apple: "/logo.png",
   },
   openGraph: {
-    title: "Reload Souls — Aurelia",
+    title: "Reload Souls — TMZA",
     description:
       "Nuevo single ya disponible. No es música. Es presión sonora.",
     type: "website",
@@ -58,19 +59,19 @@ export const metadata: Metadata = {
     siteName: "Reload Souls",
     images: [
       {
-        url: "/covers/aurelia.png",
+        url: "/covers/tmza.jpg",
         width: 1200,
         height: 1200,
-        alt: "Reload Souls — Aurelia",
+        alt: "Reload Souls — TMZA",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Reload Souls — Aurelia",
+    title: "Reload Souls — TMZA",
     description:
       "Nuevo single ya disponible. No es música. Es presión sonora.",
-    images: ["/covers/aurelia.png"],
+    images: ["/covers/tmza.jpg"],
   },
 };
 

@@ -1,8 +1,10 @@
-import { latestRelease, platforms } from "@/data/music";
+import { platforms, tracks } from "@/data/music";
 import ShareButton from "@/components/ShareButton";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+const aurelia = tracks.find((t) => t.id === "aurelia")!;
 
 const description =
   "Aurelia es luz que rompe la oscuridad. Un single de Reload Souls donde el oro corta la sombra y el bajo no pide permiso.";
@@ -13,13 +15,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Reload Souls — Aurelia",
     description,
-    images: [latestRelease.cover],
+    images: [aurelia.cover],
   },
   twitter: {
     card: "summary_large_image",
     title: "Reload Souls — Aurelia",
     description,
-    images: [latestRelease.cover],
+    images: [aurelia.cover],
   },
 };
 
@@ -43,8 +45,8 @@ export default function AureliaPage() {
 
         <div className="relative mx-auto aspect-square w-full max-w-sm overflow-hidden bg-ink">
           <Image
-            src={latestRelease.cover}
-            alt={`${latestRelease.artists} — ${latestRelease.title}`}
+            src={aurelia.cover}
+            alt={`${aurelia.artist} — ${aurelia.title}`}
             fill
             priority
             className="object-cover"
@@ -54,13 +56,13 @@ export default function AureliaPage() {
 
         <div className="mt-8 text-center">
           <p className="font-sans text-xs uppercase tracking-[0.3em] text-ember">
-            Ya disponible · {latestRelease.dateShort}
+            Ya disponible · 20.07.2026
           </p>
           <h1 className="mt-3 font-display text-5xl font-semibold tracking-tight text-bone">
-            {latestRelease.title}
+            {aurelia.title}
           </h1>
           <p className="mt-2 font-display text-lg text-mist">
-            {latestRelease.artists}
+            {aurelia.artist}
           </p>
           <p className="mx-auto mt-5 max-w-md text-sm leading-relaxed text-ash">
             {description}
@@ -69,7 +71,7 @@ export default function AureliaPage() {
 
         <div className="mt-8 flex flex-col gap-3">
           <a
-            href={latestRelease.href}
+            href={aurelia.href}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex min-h-12 items-center justify-center gap-2 border border-flare/40 bg-ember/25 px-5 py-3.5 text-center font-sans text-xs font-medium uppercase tracking-[0.2em] text-bone transition hover:bg-ember/40"

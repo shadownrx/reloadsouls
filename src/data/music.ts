@@ -73,13 +73,13 @@ export type LatestRelease = {
 };
 
 export const latestRelease: LatestRelease = {
-  title: "Aurelia",
+  title: "TMZA",
   artists: "Reload Souls",
-  dateLabel: "20 de julio de 2026",
-  dateShort: "20.07.2026",
-  cover: "/covers/aurelia.png",
-  href: "https://soundcloud.com/reload_souls/aurelia",
-  listenHref: "/aurelia",
+  dateLabel: "26 de julio de 2026",
+  dateShort: "26.07.2026",
+  cover: "/covers/tmza.jpg",
+  href: "https://soundcloud.com/reload_souls/reload-souls-tmza",
+  listenHref: "/tmza",
 };
 
 export type Platform = {
@@ -92,6 +92,16 @@ export type Platform = {
 const art = (url: string) => url.replace("-large.", "-t500x500.");
 
 export const tracks: Track[] = [
+  {
+    id: "tmza",
+    soundcloudId: "2368047017",
+    title: "TMZA",
+    artist: "Reload Souls",
+    duration: "5:29",
+    src: "/api/soundcloud/stream/2368047017",
+    cover: "/covers/tmza.jpg",
+    href: "https://soundcloud.com/reload_souls/reload-souls-tmza",
+  },
   {
     id: "aurelia",
     soundcloudId: "2364918044",
@@ -176,8 +186,8 @@ export const tracks: Track[] = [
 
 export const releases: Release[] = [
   {
-    id: "r-aurelia",
-    title: "Aurelia",
+    id: "r-tmza",
+    title: "TMZA",
     type: "Single",
     year: "2026",
     cover: tracks[0].cover,
@@ -185,52 +195,60 @@ export const releases: Release[] = [
     highlight: "Último lanzamiento",
   },
   {
-    id: "r0",
-    title: "X",
+    id: "r-aurelia",
+    title: "Aurelia",
     type: "Single",
     year: "2026",
     cover: tracks[1].cover,
     href: tracks[1].href,
   },
   {
-    id: "r1",
-    title: "Midnight Keeps Calling",
+    id: "r0",
+    title: "X",
     type: "Single",
     year: "2026",
     cover: tracks[2].cover,
     href: tracks[2].href,
   },
   {
+    id: "r1",
+    title: "Midnight Keeps Calling",
+    type: "Single",
+    year: "2026",
+    cover: tracks[3].cover,
+    href: tracks[3].href,
+  },
+  {
     id: "r2",
     title: "ID (Reload Mashup)",
     type: "Mashup",
     year: "2026",
-    cover: tracks[3].cover,
-    href: tracks[3].href,
+    cover: tracks[4].cover,
+    href: tracks[4].href,
   },
   {
     id: "r3",
     title: "2AM",
     type: "Single",
     year: "2026",
-    cover: tracks[4].cover,
-    href: tracks[4].href,
+    cover: tracks[5].cover,
+    href: tracks[5].href,
   },
   {
     id: "r4",
     title: "3AM",
     type: "Single",
     year: "2026",
-    cover: tracks[5].cover,
-    href: tracks[5].href,
+    cover: tracks[6].cover,
+    href: tracks[6].href,
   },
   {
     id: "r5",
     title: "ID",
     type: "Single",
     year: "2026",
-    cover: tracks[6].cover,
-    href: tracks[6].href,
+    cover: tracks[7].cover,
+    href: tracks[7].href,
   },
 ];
 

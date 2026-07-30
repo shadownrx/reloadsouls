@@ -32,7 +32,7 @@ export default function TrackPlayer({ stats = {} }: TrackPlayerProps) {
   const currentLikes = stats[current.soundcloudId]?.likesCount;
 
   useEffect(() => {
-    const base = "Reload Souls — Aurelia";
+    const base = "Reload Souls — TMZA";
     if (playing) {
       document.title = `♪ ${current.title} — Reload Souls`;
     } else {

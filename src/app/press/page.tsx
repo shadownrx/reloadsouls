@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 const assets = [
   { label: "Logo", href: "/logo.png", file: "logo.png" },
   { label: "Cover principal", href: "/cover.png", file: "cover.png" },
+  { label: "TMZA cover", href: "/covers/tmza.jpg", file: "tmza.jpg" },
   { label: "Aurelia cover", href: "/covers/aurelia.png", file: "aurelia.png" },
   {
     label: "Ignition cover",
@@ -93,6 +94,12 @@ export default function PressPage() {
                 className="text-flare hover:underline"
               >
                 @reload_souls
+              </a>
+            </li>
+            <li>
+              TMZA:{" "}
+              <a href="/tmza" className="text-flare hover:underline">
+                /tmza
               </a>
             </li>
             <li>
