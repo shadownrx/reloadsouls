@@ -24,10 +24,6 @@ const chapters = [
     label: "Ignition",
     text: "Con Milagro abre un capítulo nuevo: Progressive House y Melodic Techno, tensión emocional y un drop donde la emoción encuentra la energía. Coming soon.",
   },
-  {
-    label: "XyZ",
-    text: "Con Blas viene el capítulo más oscuro: atmósferas góticas, coros y máquina. Retrasado — se anuncia cuando caiga.",
-  },
 ];
 
 export default function Story() {

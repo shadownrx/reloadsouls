@@ -47,7 +47,7 @@ export const upcomingRelease: UpcomingRelease = {
   notifyHref: "https://www.instagram.com/reload_souls/",
 };
 
-/** Collab retrasada — smart link /xyz */
+/** Collab en pausa — no se muestra en el site por ahora */
 export const xyzRelease: UpcomingRelease = {
   title: "XyZ",
   artists: "Reload Souls x Blas",

@@ -1,4 +1,4 @@
-import { latestRelease, upcomingRelease, xyzRelease } from "@/data/music";
+import { latestRelease, upcomingRelease } from "@/data/music";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,7 +19,6 @@ const assets = [
     href: "/covers/ignition.png",
     file: "ignition.png",
   },
-  { label: "XyZ cover", href: "/covers/xyz.png", file: "xyz.png" },
   { label: "X cover", href: "/covers/x.png", file: "x.png" },
 ];
 
@@ -125,13 +124,6 @@ export default function PressPage() {
                 /ignition
               </a>{" "}
               · {upcomingRelease.artists}
-            </li>
-            <li>
-              XyZ:{" "}
-              <a href="/xyz" className="text-flare hover:underline">
-                /xyz
-              </a>{" "}
-              · {xyzRelease.artists} (retrasado)
             </li>
           </ul>
         </section>

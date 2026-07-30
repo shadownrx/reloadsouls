@@ -40,8 +40,6 @@ export const metadata: Metadata = {
     "Milagro",
     "Progressive House",
     "Melodic Techno",
-    "XyZ",
-    "Blas",
     "techno",
     "SoundCloud",
     "industrial",
