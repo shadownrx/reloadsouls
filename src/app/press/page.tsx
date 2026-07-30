@@ -97,6 +97,17 @@ export default function PressPage() {
               </a>
             </li>
             <li>
+              TikTok:{" "}
+              <a
+                href="https://www.tiktok.com/@reload_souls"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-flare hover:underline"
+              >
+                @reload_souls
+              </a>
+            </li>
+            <li>
               TMZA:{" "}
               <a href="/tmza" className="text-flare hover:underline">
                 /tmza
