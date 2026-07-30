@@ -34,6 +34,21 @@ export type UpcomingRelease = {
 };
 
 export const upcomingRelease: UpcomingRelease = {
+  title: "Ignition",
+  artists: "Reload Souls x Milagro",
+  dateLabel: "Próximamente",
+  dateShort: "Soon",
+  releaseAt: null,
+  status: "scheduled",
+  description:
+    "Ignition es la chispa que prende el vacío. Reload Souls x Milagro: fuego industrial, sparks en el suelo y una presión que no pide permiso. El próximo descenso — avisamos cuando caiga.",
+  cover: "/covers/ignition.png",
+  href: "/ignition",
+  notifyHref: "https://www.instagram.com/reload_souls/",
+};
+
+/** Collab retrasada — smart link /xyz */
+export const xyzRelease: UpcomingRelease = {
   title: "XyZ",
   artists: "Reload Souls x Blas",
   dateLabel: "Próximamente",

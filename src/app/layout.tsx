@@ -31,10 +31,12 @@ export const metadata: Metadata = {
     template: "%s · Reload Souls",
   },
   description:
-    "Aurelia — nuevo single de Reload Souls. Ya disponible. XyZ x Blas coming soon. No es música. Es presión sonora.",
+    "Aurelia — nuevo single de Reload Souls. Ya disponible. Ignition x Milagro coming soon. No es música. Es presión sonora.",
   keywords: [
     "Reload Souls",
     "Aurelia",
+    "Ignition",
+    "Milagro",
     "XyZ",
     "Blas",
     "techno",

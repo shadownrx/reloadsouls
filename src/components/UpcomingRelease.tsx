@@ -93,11 +93,11 @@ export default function UpcomingRelease() {
                 <span className="text-bone">{upcomingRelease.dateLabel}</span>.
                 Te avisamos cuando caiga.
               </>
-            ) : (
+            ) : hasDate ? (
               <>
                 Se estrena el{" "}
                 <span className="text-bone">{upcomingRelease.dateLabel}</span>.
-                {hasDate && daysLeft !== null && daysLeft > 0 ? (
+                {daysLeft !== null && daysLeft > 0 ? (
                   <>
                     {" "}
                     Faltan{" "}
@@ -108,6 +108,11 @@ export default function UpcomingRelease() {
                   </>
                 ) : null}
               </>
+            ) : (
+              <>
+                <span className="text-bone">{upcomingRelease.dateLabel}</span>.
+                Te avisamos cuando caiga.
+              </>
             )}
           </p>
 
@@ -116,7 +121,7 @@ export default function UpcomingRelease() {
               href={upcomingRelease.href}
               className="inline-flex min-h-12 items-center justify-center gap-3 border border-flare/40 bg-ember/20 px-6 py-3.5 font-sans text-xs font-medium uppercase tracking-[0.2em] text-bone transition hover:border-flare hover:bg-ember/40 sm:text-sm"
             >
-              Smart link XyZ
+              Smart link {upcomingRelease.title}
               <span aria-hidden>→</span>
             </a>
             <a
@@ -128,9 +133,9 @@ export default function UpcomingRelease() {
               Avisame en Instagram
             </a>
             <ShareButton
-              title="Reload Souls x Blas — XyZ"
+              title={`${upcomingRelease.artists} — ${upcomingRelease.title}`}
               text={upcomingRelease.description}
-              url="/xyz"
+              url={upcomingRelease.href}
               label="Compartir"
               className="inline-flex min-h-12 items-center justify-center gap-3 border border-white/15 px-6 py-3.5 font-sans text-xs font-medium uppercase tracking-[0.2em] text-mist transition hover:border-flare/40 hover:text-bone sm:text-sm"
             />

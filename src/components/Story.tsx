@@ -17,6 +17,10 @@ const chapters = [
     text: "El 20 de julio de 2026 llega Aurelia: oro, grieta y presión. El single más reciente de Reload Souls, ya disponible.",
   },
   {
+    label: "Ignition",
+    text: "Con Milagro prende Ignition: chispa en el vacío, fuego industrial y un descenso que aún no tiene fecha. Coming soon.",
+  },
+  {
     label: "XyZ",
     text: "Con Blas viene el capítulo más oscuro: atmósferas góticas, coros y máquina. Retrasado — se anuncia cuando caiga.",
   },

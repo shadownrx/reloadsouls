@@ -1,28 +1,28 @@
-import { platforms, xyzRelease } from "@/data/music";
+import { platforms, upcomingRelease } from "@/data/music";
 import ShareButton from "@/components/ShareButton";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "XyZ — Reload Souls x Blas · Coming soon",
-  description: xyzRelease.description,
+  title: "Ignition — Reload Souls x Milagro · Coming soon",
+  description: upcomingRelease.description,
   openGraph: {
-    title: "Reload Souls x Blas — XyZ (Coming soon)",
-    description: xyzRelease.description,
-    images: [xyzRelease.cover],
+    title: "Reload Souls x Milagro — Ignition (Coming soon)",
+    description: upcomingRelease.description,
+    images: [upcomingRelease.cover],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Reload Souls x Blas — XyZ (Coming soon)",
-    description: xyzRelease.description,
-    images: [xyzRelease.cover],
+    title: "Reload Souls x Milagro — Ignition (Coming soon)",
+    description: upcomingRelease.description,
+    images: [upcomingRelease.cover],
   },
 };
 
 const listenLinks = platforms.filter((p) => p.href);
 
-export default function XyzPage() {
+export default function IgnitionPage() {
   return (
     <main className="relative min-h-[100svh] overflow-hidden bg-void text-bone">
       <div
@@ -40,8 +40,8 @@ export default function XyzPage() {
 
         <div className="relative mx-auto aspect-square w-full max-w-sm overflow-hidden bg-ink">
           <Image
-            src={xyzRelease.cover}
-            alt={`${xyzRelease.artists} — ${xyzRelease.title}`}
+            src={upcomingRelease.cover}
+            alt={`${upcomingRelease.artists} — ${upcomingRelease.title}`}
             fill
             priority
             className="object-cover"
@@ -51,22 +51,22 @@ export default function XyzPage() {
 
         <div className="mt-8 text-center">
           <p className="font-sans text-xs uppercase tracking-[0.3em] text-ember">
-            Retrasado · Coming soon
+            Coming soon
           </p>
           <h1 className="mt-3 font-display text-5xl font-semibold tracking-tight text-bone">
-            {xyzRelease.title}
+            {upcomingRelease.title}
           </h1>
           <p className="mt-2 font-display text-lg text-mist">
-            {xyzRelease.artists}
+            {upcomingRelease.artists}
           </p>
           <p className="mx-auto mt-5 max-w-md text-sm leading-relaxed text-ash">
-            {xyzRelease.description}
+            {upcomingRelease.description}
           </p>
         </div>
 
         <div className="mt-8 flex flex-col gap-3">
           <a
-            href={xyzRelease.notifyHref}
+            href={upcomingRelease.notifyHref}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex min-h-12 items-center justify-center gap-2 border border-flare/40 bg-ember/25 px-5 py-3.5 text-center font-sans text-xs font-medium uppercase tracking-[0.2em] text-bone transition hover:bg-ember/40"
@@ -74,16 +74,16 @@ export default function XyzPage() {
             Avisame en Instagram
           </a>
           <Link
-            href="/ignition"
+            href="/#escuchar"
             className="inline-flex min-h-12 items-center justify-center border border-white/15 px-5 py-3.5 text-center font-sans text-xs font-medium uppercase tracking-[0.2em] text-mist transition hover:border-white/30 hover:text-bone"
           >
-            Ver Ignition · x Milagro
+            Escuchar Aurelia ahora
           </Link>
           <ShareButton
-            title="Reload Souls x Blas — XyZ"
-            text={xyzRelease.description}
-            url="/xyz"
-            label="Compartir XyZ"
+            title="Reload Souls x Milagro — Ignition"
+            text={upcomingRelease.description}
+            url="/ignition"
+            label="Compartir Ignition"
             className="inline-flex min-h-12 items-center justify-center border border-white/15 px-5 py-3.5 text-center font-sans text-xs font-medium uppercase tracking-[0.2em] text-mist transition hover:border-flare/40 hover:text-bone"
           />
         </div>
