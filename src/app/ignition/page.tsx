@@ -59,7 +59,7 @@ export default function IgnitionPage() {
           <p className="mt-2 font-display text-lg text-mist">
             {upcomingRelease.artists}
           </p>
-          <p className="mx-auto mt-5 max-w-md text-sm leading-relaxed text-ash">
+          <p className="mx-auto mt-5 max-w-md whitespace-pre-line text-sm leading-relaxed text-ash">
             {upcomingRelease.description}
           </p>
         </div>

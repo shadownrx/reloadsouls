@@ -41,7 +41,7 @@ export const upcomingRelease: UpcomingRelease = {
   releaseAt: null,
   status: "scheduled",
   description:
-    "Ignition es la chispa que prende el vacío. Reload Souls x Milagro: fuego industrial, sparks en el suelo y una presión que no pide permiso. El próximo descenso — avisamos cuando caiga.",
+    '"Ignition" is a cinematic journey through powerful melodies, deep atmospheres and progressive energy. Built around emotional tension and a powerful release, the track blends Progressive House and Melodic Techno influences to create an immersive experience designed for the dancefloor.\n\nFrom the first moments, the track builds a world of intensity and anticipation, leading into a powerful drop where emotion meets energy.\n\nA new chapter begins.',
   cover: "/covers/ignition.png",
   href: "/ignition",
   notifyHref: "https://www.instagram.com/reload_souls/",

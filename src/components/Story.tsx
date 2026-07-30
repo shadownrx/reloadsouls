@@ -18,7 +18,7 @@ const chapters = [
   },
   {
     label: "Ignition",
-    text: "Con Milagro prende Ignition: chispa en el vacío, fuego industrial y un descenso que aún no tiene fecha. Coming soon.",
+    text: "Con Milagro abre un capítulo nuevo: Progressive House y Melodic Techno, tensión emocional y un drop donde la emoción encuentra la energía. Coming soon.",
   },
   {
     label: "XyZ",

@@ -83,7 +83,7 @@ export default function UpcomingRelease() {
           <p className="mt-2 font-display text-lg text-mist sm:mt-3 sm:text-xl md:text-2xl">
             {upcomingRelease.artists}
           </p>
-          <p className="mt-5 max-w-lg text-sm leading-relaxed text-mist sm:mt-6 sm:text-base">
+          <p className="mt-5 max-w-lg whitespace-pre-line text-sm leading-relaxed text-mist sm:mt-6 sm:text-base">
             {upcomingRelease.description}
           </p>
           <p className="mt-5 max-w-md text-base leading-relaxed text-ash sm:mt-6 sm:text-lg">
