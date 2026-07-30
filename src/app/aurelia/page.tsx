@@ -1,5 +1,5 @@
 import { platforms, tracks } from "@/data/music";
-import ShareButton from "@/components/ShareButton";
+import ShareButton, { WhatsAppShareButton } from "@/components/ShareButton";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -84,6 +84,13 @@ export default function AureliaPage() {
           >
             Abrir player
           </Link>
+          <WhatsAppShareButton
+            title="Reload Souls — Aurelia"
+            text={description}
+            url="/aurelia"
+            label="Compartir en WhatsApp"
+            className="inline-flex min-h-12 items-center justify-center gap-2 border border-flare/40 bg-ember/25 px-5 py-3.5 text-center font-sans text-xs font-medium uppercase tracking-[0.2em] text-bone transition hover:bg-ember/40"
+          />
           <ShareButton
             title="Reload Souls — Aurelia"
             text={description}

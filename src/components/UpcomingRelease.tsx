@@ -1,7 +1,7 @@
 "use client";
 
 import { upcomingRelease } from "@/data/music";
-import ShareButton from "@/components/ShareButton";
+import ShareButton, { WhatsAppShareButton } from "@/components/ShareButton";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
@@ -132,6 +132,13 @@ export default function UpcomingRelease() {
             >
               Avisame en Instagram
             </a>
+            <WhatsAppShareButton
+              title={`${upcomingRelease.artists} — ${upcomingRelease.title}`}
+              text={upcomingRelease.description}
+              url={upcomingRelease.href}
+              label="WhatsApp"
+              className="inline-flex min-h-12 items-center justify-center gap-3 border border-flare/40 bg-ember/20 px-6 py-3.5 font-sans text-xs font-medium uppercase tracking-[0.2em] text-bone transition hover:border-flare hover:bg-ember/40 sm:text-sm"
+            />
             <ShareButton
               title={`${upcomingRelease.artists} — ${upcomingRelease.title}`}
               text={upcomingRelease.description}

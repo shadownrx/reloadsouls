@@ -1,5 +1,5 @@
 import { platforms, upcomingRelease } from "@/data/music";
-import ShareButton from "@/components/ShareButton";
+import ShareButton, { WhatsAppShareButton } from "@/components/ShareButton";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -79,6 +79,13 @@ export default function IgnitionPage() {
           >
             Escuchar TMZA ahora
           </Link>
+          <WhatsAppShareButton
+            title="Reload Souls x Milagro — Ignition"
+            text={upcomingRelease.description}
+            url="/ignition"
+            label="Compartir en WhatsApp"
+            className="inline-flex min-h-12 items-center justify-center gap-2 border border-flare/40 bg-ember/25 px-5 py-3.5 text-center font-sans text-xs font-medium uppercase tracking-[0.2em] text-bone transition hover:bg-ember/40"
+          />
           <ShareButton
             title="Reload Souls x Milagro — Ignition"
             text={upcomingRelease.description}

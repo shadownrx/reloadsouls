@@ -1,7 +1,7 @@
 "use client";
 
 import { tracks, type Track } from "@/data/music";
-import ShareButton from "@/components/ShareButton";
+import ShareButton, { WhatsAppShareButton } from "@/components/ShareButton";
 import { formatPlayCount } from "@/lib/format";
 import type { TrackStats } from "@/lib/soundcloud";
 import { AnimatePresence, motion } from "framer-motion";
@@ -324,16 +324,31 @@ export default function TrackPlayer({ stats = {} }: TrackPlayerProps) {
                   >
                     SoundCloud →
                   </a>
+                  <WhatsAppShareButton
+                    title={`${current.title} — Reload Souls`}
+                    text={`Escuchá ${current.title} de Reload Souls`}
+                    url={
+                      current.id === "tmza"
+                        ? "/tmza"
+                        : current.id === "aurelia"
+                          ? "/aurelia"
+                          : current.href
+                    }
+                    label="WhatsApp"
+                    className="ml-auto font-sans text-[0.65rem] uppercase tracking-[0.2em] text-flare transition hover:text-bone sm:text-xs"
+                  />
                   <ShareButton
                     title={`${current.title} — Reload Souls`}
                     text={`Escuchá ${current.title} de Reload Souls`}
                     url={
-                      current.id === "aurelia"
-                        ? "/aurelia"
-                        : current.href
+                      current.id === "tmza"
+                        ? "/tmza"
+                        : current.id === "aurelia"
+                          ? "/aurelia"
+                          : current.href
                     }
                     label="Compartir"
-                    className="ml-auto font-sans text-[0.65rem] uppercase tracking-[0.2em] text-ash transition hover:text-flare sm:text-xs"
+                    className="font-sans text-[0.65rem] uppercase tracking-[0.2em] text-ash transition hover:text-flare sm:text-xs"
                   />
                 </div>
               </div>
