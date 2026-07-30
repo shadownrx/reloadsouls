@@ -299,8 +299,8 @@ export const platforms: Platform[] = [
   {
     id: "tiktok",
     name: "TikTok",
-    href: "https://www.tiktok.com/search?q=Reload%20Souls",
-    label: "Buscar en TikTok",
+    href: "https://www.tiktok.com/@reload_souls",
+    label: "Seguir en TikTok",
   },
   {
     id: "instagram",
